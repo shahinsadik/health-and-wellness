@@ -9,7 +9,7 @@ const Banner = () => {
     AOS.refresh();
   }, []);
   return (
-    <div className="bg-[#5137ac]">
+    <div className="bg-[#5137ac] pt-24">
       <div className="mx-5 md:mx-10 lg:mx-20">
         <div className="  ">
           <div className="min-h-screen lg:gap-16 md:gap-10 gap-5 grid md:grid-cols-2 grid-cols-1 items-center justify-center">

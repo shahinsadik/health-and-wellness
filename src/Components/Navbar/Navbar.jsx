@@ -40,7 +40,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-[#5137ac] drop-shadow-xl">
+      <div className="navbar bg-[#5137ac] drop-shadow-xl z-40 fixed" >
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -60,11 +60,11 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-[#6c63ff] rounded-box w-52">
+              className="menu menu-sm dropdown-content  mt-3  p-2 shadow bg-[#6c63ff] rounded-box w-52">
               {links}
             </ul>
           </div>
-          <Link to="/" className="btn btn-primary normal-case text-2xl text-white">
+          <Link to="/" className="ml-5 normal-case text-2xl text-white">
             <span className="text-[#ff3c00] font-black">H</span>&<span className="text-green-800 font-black">W</span>
             
           </Link>
