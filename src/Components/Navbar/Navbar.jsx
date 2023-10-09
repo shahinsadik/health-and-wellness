@@ -64,8 +64,9 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost normal-case text-2xl text-white">
-            <span className="text-[#ff3c00]">H</span>&<span className="text-green">W</span>
+          <Link to="/" className="btn btn-primary normal-case text-2xl text-white">
+            <span className="text-[#ff3c00] font-black">H</span>&<span className="text-green-800 font-black">W</span>
+            
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
