@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "title": "The Benefits of Regular Exercise",
+      "author": "Sarah Johnson",
+      "date": "2023-10-15",
+      "categories": ["Fitness", "Exercise"],
+      "tags": ["exercise", "health", "fitness"],
+      "content": "Regular exercise has numerous benefits for both physical and mental health. It can improve cardiovascular health, boost mood, and increase energy levels.",
+      "image": "https://us.123rf.com/450wm/rawpixel/rawpixel1609/rawpixel160908113/62027967-weight-control-bmi-wellbeing-lifestyle-concept.jpg?ver=6"
+    },
+    {
+      "id": 2,
+      "title": "Healthy Eating Habits for a Balanced Diet",
+      "author": "Michael Smith",
+      "date": "2023-10-20",
+      "categories": ["Nutrition", "Diet"],
+      "tags": ["nutrition", "diet", "healthy eating"],
+      "content": "Eating a balanced diet is essential for overall health. Incorporate a variety of fruits, vegetables, lean proteins, and whole grains into your meals.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7ZSfkf7nyjvnveaCpdyPzFaBdASGf9vq5Gj1eUky7Ma1v82Gi8CCshEmfaEUECIicR48&usqp=CAU"
+    },
+    {
+      "id": 3,
+      "title": "Meditation and Stress Reduction",
+      "author": "Emily Davis",
+      "date": "2023-10-25",
+      "categories": ["Mental Health", "Wellness"],
+      "tags": ["meditation", "stress relief", "mental health"],
+      "content": "Meditation is a powerful tool for reducing stress and promoting mental well-being. It helps calm the mind and improve focus.",
+      "image": "https://media.istockphoto.com/id/613241758/photo/young-woman-working-on-a-laptop.jpg?s=612x612&w=0&k=20&c=B3WbJ7VFEr77G0T698I0WMkM5LOV-pMrLCljEEJGh-o="
+    },
+    {
+      "id": 4,
+      "title": "The Importance of Sleep for Health",
+      "author": "David Anderson",
+      "date": "2023-11-01",
+      "categories": ["Sleep", "Well-Being"],
+      "tags": ["sleep", "health", "well-being"],
+      "content": "Getting enough quality sleep is crucial for overall health. It supports immune function, cognitive function, and emotional well-being.",
+      "image": "https://img.freepik.com/premium-photo/beautiful-smiling-ethnic-woman-works-remotely-laptop-from-home_854465-46.jpg?w=360"
+    },
+    {
+      "id": 5,
+      "title": "Mindful Eating: How to Practice It",
+      "author": "Sophia Lee",
+      "date": "2023-11-05",
+      "categories": ["Nutrition", "Wellness"],
+      "tags": ["mindful eating", "nutrition", "health"],
+      "content": "Mindful eating involves paying full attention to your food, savoring each bite, and listening to your body's hunger and fullness cues. It can help prevent overeating.",
+      "image": "https://img.freepik.com/free-photo/woman-making-natural-face-mask_23-2148883844.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Staying Hydrated: Tips for Better Water Intake",
+      "author": "Robert Williams",
+      "date": "2023-11-10",
+      "categories": ["Nutrition", "Wellness"],
+      "tags": ["hydration", "water intake", "health"],
+      "content": "Proper hydration is essential for good health. Drink an adequate amount of water throughout the day to maintain hydration and support bodily functions.",
+      "image": "https://www.tebra.com/wp-content/uploads/2023/04/healthcare-marketing.png"
+    }
+  ]
+

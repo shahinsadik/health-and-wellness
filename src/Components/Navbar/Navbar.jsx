@@ -5,7 +5,6 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-console.log(user);
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -29,6 +28,9 @@ console.log(user);
       </li>
       <li className="font-bold text-white text-lg">
         <NavLink to="/team">Our Team</NavLink>
+      </li>
+      <li className="font-bold text-white text-lg">
+        <NavLink to="/blog">Blog</NavLink>
       </li>
       <li className="font-bold text-white text-lg">
         <NavLink to="/contact">Contact</NavLink>

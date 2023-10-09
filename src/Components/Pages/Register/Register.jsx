@@ -1,12 +1,14 @@
 
 import { useContext, useState } from "react";
 import LogPic from "../../../assets/SignPic.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AiOutlineGoogle, AiFillGithub } from "react-icons/ai";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 const Register = () => {
+  const location =useLocation()
+  console.log(location);
   const [error, setError] = useState();
   const [emailError, setEmailError] = useState("");
   const navigate = useNavigate()
@@ -15,6 +17,7 @@ const Register = () => {
   const handleUser = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
+    const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/.test(password)) {
@@ -25,8 +28,9 @@ const Register = () => {
       if (email) {
         crateNewUser(email, password).then(() => {
           toast.success("Sign Up Successfully");
-          e.target.reset()
-            navigate("/")
+          // e.target.reset()
+          // navigate(location?.state ? location.state : "/")
+          navigate("/", { fromRegister: true });
           })
           .catch((error) => {
             if (error.code === "auth/email-already-in-use") {
@@ -63,6 +67,20 @@ const Register = () => {
                   name="name"
                   type="text"
                   placeholder="Enter your full name"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text font-semibold">
+                    Your photo link
+                  </span>
+                </label>
+                <input
+                  name="photo"
+                  type="text"
+                  placeholder="Image ink"
                   className="input input-bordered"
                   required
                 />

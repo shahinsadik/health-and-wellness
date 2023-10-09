@@ -16,6 +16,8 @@ import Contact from './Components/Pages/Contact/Contact';
 import Event from './Components/Pages/Event/Event';
 import Events from './Components/Pages/Events/Events';
 import Team from './Components/Pages/Team/Team';
+import Blog from './Components/Pages/Blog/Blog';
+import PrivetRoute from './Components/PrivetRoute/PrivetRoute';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,19 +47,25 @@ const router = createBrowserRouter([
       },
       {
         path:"/event/:id",
-        element:<Event></Event>,
+        element:<PrivetRoute><Event></Event></PrivetRoute>,
         loader: ()=>fetch("../data.json")
       },
       {
         path:"/events",
-        element:<Events></Events>,
+        element:<PrivetRoute><Events></Events></PrivetRoute>,
         loader: ()=>fetch("../data.json")
       },
       {
         path:"/team",
-        element:<Team></Team>,
+        element:<PrivetRoute><Team></Team></PrivetRoute>,
         loader: ()=>fetch("../data.json")
       },
+      {
+        path:"/blog",
+        element:<Blog></Blog>,
+        loader: ()=>fetch("../blog.json")
+      },
+
     ]
   },
 ]);

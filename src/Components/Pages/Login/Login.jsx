@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import LogPic from "../../../assets/LogPic.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineGoogle, AiFillGithub } from "react-icons/ai";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation()
   const { signInGoogle, signInUser, user } = useContext(AuthContext);
   
   
@@ -19,8 +20,8 @@ const Login = () => {
     signInUser(email, password)
       .then(() => {
         toast.success("Login Successfully");
-        e.target.reset()
-        navigate("/")
+        navigate(location.state ? location?.state : "/", { fromLogin: true })
+        // e.target.reset()
       })
       .catch(() => {
         toast.error("Invalid email or passWord")
@@ -31,7 +32,7 @@ const Login = () => {
     signInGoogle()
       .then(() => {
         toast.success("Login Successfully")
-        navigate("/")
+        navigate(location?.state ? location?.state : "/", { fromLogin: true })
       })
       .catch(() => {
         toast.error("Invalid email or passWord")
@@ -81,7 +82,7 @@ const Login = () => {
                 <button className="btn btn-primary bg-[#6c63ff]">Login</button>{" "}
                 <div className="divider">OR</div>
                 <div className="flex gap-4 items-center justify-center mt-2">
-                  <Link onClick={handleGoogleSignIn} className="" to="/login">
+                  <Link onClick={handleGoogleSignIn} className="" >
                     <AiOutlineGoogle className="text-center text-4xl text-[#6c63ff]"></AiOutlineGoogle>
                   </Link>
                   <Link className="text-[#6c63ff] " to="/login">
@@ -89,7 +90,7 @@ const Login = () => {
                   </Link>
                 </div>
                 <p className="my-2 font-semibold text-center text-[#706F6F]">
-                  Dont't have An Account ?{" "}
+                  Do not have An Account ?{" "}
                   <Link to="/register" className="text-[#6c63ff] ">
                     Sign Up Now
                   </Link>

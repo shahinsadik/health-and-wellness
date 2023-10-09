@@ -1,7 +1,8 @@
-
+import {useState} from 'react'
 import { useParams, useLoaderData } from "react-router-dom";
 
 const Event = () => {
+  const [eventDetails, setEventDetails]= useState(null)
   const data = useLoaderData();
 
   const { id } = useParams();
