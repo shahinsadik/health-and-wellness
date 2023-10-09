@@ -6,7 +6,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 const Register = () => {
-  const { crateNewUser, profileUpdate } = useContext(AuthContext);
+  const { crateNewUser, profileUpdate, signInGoogle } = useContext(AuthContext);
   const location = useLocation();
   console.log(location);
   const [error, setError] = useState();
@@ -53,12 +53,12 @@ const Register = () => {
   return (
     <div>
       <Toaster />
-      <div className="hero min-h-screen mt-5">
+      <div className="hero min-h-screen pt-28 mb-10 ">
         <div className="grid lg:grid-cols-2 grid-cols-1">
           <div className="lg:mt-20">
             <img className="h-full" src={LogPic} alt="" />
           </div>
-          <div className="card flex-shrink-0 w-full  max-w-lg ">
+          <div className="card gap-5 flex-shrink-0 w-full mt-5  max-w-lg ">
             <form
               onSubmit={handleUser}
               className="card-body border-2 border-violet-400 rounded-2xl ">
@@ -93,7 +93,7 @@ const Register = () => {
                   required
                 />
               </div>
-              <div className="form-control">
+              <div className="form-control ">
                 <label className="label">
                   <span className="label-text font-semibold">Email</span>
                 </label>
@@ -128,7 +128,7 @@ const Register = () => {
                 <div></div>
                 <div className="divider">OR</div>
                 <div className="flex gap-4 items-center justify-center mt-2">
-                  <Link className="">
+                  <Link  className="">
                     <AiOutlineGoogle className="text-[#6c63ff] text-4xl"></AiOutlineGoogle>
                   </Link>
                   <Link className="">

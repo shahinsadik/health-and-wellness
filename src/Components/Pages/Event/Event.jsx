@@ -21,8 +21,8 @@ const Event = () => {
           <img className=" max-h-screen w-full" src={event.image} alt="image" />
         </figure>
         <div className="px-10 mt-2">
-          <div className="flex justify-between items-center">
-            <div className="bg-green-400 pr-10 p-5">
+          <div className="flex p-5 justify-between items-center">
+            <div className="bg-green-400 md:pr-10 p-5">
               <p className="font-semibold text-[#6243d1]">Date: {event.date}</p>
               <p className="font-semibold text-[#6243d1]">
                 Entry Fee: {event.entryFee}

@@ -9,7 +9,7 @@ const Team = () => {
   }, []);
   const teams = useLoaderData().slice(0, 6);
   return (
-    <div className="py-5 bg-[#f5f2ff]">
+    <div className="pt-24 mb-10 bg-[#f5f2ff]">
       <h1 className="text-4xl font-bold text-center my-5 mb-5 text-[#6c63ff]">
         Meet the Team
       </h1>

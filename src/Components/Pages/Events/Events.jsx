@@ -5,7 +5,7 @@ const Events = () => {
     const data = useLoaderData();
     return (
         <div>
-             <div className="mx-5">
+             <div className="mx-5 pt-24 mb-10">
              <h1 className="text-4xl font-bold text-center mt-10 my-5 text-[#6c63ff]">
           Event Services
         </h1>

@@ -6,7 +6,7 @@ const Contact = () => {
     toast.success("Your message has been submitted");
    }
     return (
-        <div className='mx-10 my-10'>
+        <div className='mx-10 pt-24 mb-10'>
             <div >
                 <h1 className="text-5xl font-bold mt-5 text-[#6243d1] text-center  ">Get In Touch</h1>
                 <p className='text-[#6243d1] text-center mt-3 '>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br />

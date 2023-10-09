@@ -6,7 +6,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
-  const { signInGoogle, signInUser} = useContext(AuthContext);
+  const { signInGoogle, signInUser, } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation()
   
@@ -41,12 +41,12 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="hero min-h-screen">
+      <div className="hero min-h-screen py-28 mb-10 ">
         <div className="grid lg:grid-cols-2 grid-cols-1">
           <div className="">
             <img className="" src={LogPic} alt="" />
           </div>
-          <div className="card flex-shrink-0 w-full  max-w-lg ">
+          <div className="card flex-shrink-0 w-full mt-5  max-w-lg ">
             <form
               onSubmit={handleSignInUser}
               className="card-body border-2 border-violet-400 rounded-2xl">

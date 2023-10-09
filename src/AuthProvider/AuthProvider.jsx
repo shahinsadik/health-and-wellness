@@ -9,11 +9,13 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-  updateProfile
+  updateProfile,
+  GithubAuthProvider
 } from "firebase/auth";
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
+const GithubProvider = new GithubAuthProvider()
 
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
@@ -36,6 +38,10 @@ const AuthProvider = ({ children }) => {
     setLoading(true)
     return signInWithPopup(auth, googleProvider);
   };
+  const signInGithub = () =>{
+    setLoading(true)
+    return signInWithPopup(auth,GithubAuthProvider)
+  }
 
   const signInUser = (email, password) => {
       setLoading(true)
@@ -59,12 +65,13 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     signInGoogle,
+    signInGithub,
     signInUser,
     crateNewUser,
     logOut,
     user,
     loading,
-    profileUpdate
+    profileUpdate,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
