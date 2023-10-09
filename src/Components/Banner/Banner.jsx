@@ -10,7 +10,7 @@ const Banner = () => {
   }, []);
   return (
     <div className="bg-[#5137ac] pt-24">
-      <div className="mx-5 md:mx-10 lg:mx-20">
+      <div className="mx-5 lg:mx-20">
         <div className="  ">
           <div className="min-h-screen lg:gap-16 md:gap-10 gap-5 grid md:grid-cols-2 grid-cols-1 items-center justify-center">
             <div data-aos="fade-up" data-aos-duration="3000">
@@ -22,7 +22,7 @@ const Banner = () => {
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque laudantium.
               </p>
-              <Link to="/events" className="btn btn-primary bg-[#ff3c00]">
+              <Link className="btn btn-primary bg-[#ff3c00]">
                 Book Appointment
               </Link>
             </div>
@@ -30,7 +30,7 @@ const Banner = () => {
               data-aos="fade-down"
               data-aos-easing="linear"
               data-aos-duration="1500">
-              <img src={BannerPic} className="max-w-sm rounded-lg " />
+              <img src={BannerPic} className="lg:max-w-sm w-full rounded-lg " />
             </div>
           </div>
         </div>

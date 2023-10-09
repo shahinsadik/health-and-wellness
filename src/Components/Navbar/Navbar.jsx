@@ -60,7 +60,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content  mt-3  p-2 shadow bg-[#6c63ff] rounded-box w-52">
+              className="menu menu-sm dropdown-content  mt-3  p-2 shadow bg-[#6c63ff] rounded-box lg:w-52">
               {links}
             </ul>
           </div>
@@ -89,7 +89,7 @@ const Navbar = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content  z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                  className="dropdown-content  z-[1] menu p-2 shadow bg-base-100 rounded-box lg:w-52">
                     <li>
                     <a className="font-semibold">{user.displayName}</a>
                   </li>
@@ -110,14 +110,14 @@ const Navbar = () => {
               </div>
             </>
           ) : (
-            <div>
+            <div className="flex gap-2">
               <Link to="/login">
-                <button className="btn btn-sm font-bold text-white hover:text-[#ff3c00] bg-[#ff3c00] border-none">
+                <button className=" font-semibold text-white rounded-lg p-2 bg-[#ff3c00] border-none">
                   Login
                 </button>
               </Link>
               <Link to="/register">
-                <button className="btn ml-5 btn-sm font-bold text-white hover:text-[#ff3c00] bg-[#ff3c00] border-none">
+                <button className=" font-semibold p-2  text-white rounded-lg bg-[#ff3c00] border-none">
                   Sign Up
                 </button>
               </Link>
