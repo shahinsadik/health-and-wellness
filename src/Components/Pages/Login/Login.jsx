@@ -6,21 +6,22 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
+  const { signInGoogle, signInUser} = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation()
-  const { signInGoogle, signInUser, user } = useContext(AuthContext);
   
   
 
   const handleSignInUser = (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+    const form = new FormData(e.currentTarget);
+    const email = form.get("email");
+    const password = form.get("email");
 
     signInUser(email, password)
       .then(() => {
         toast.success("Login Successfully");
-        navigate(location.state ? location?.state : "/", { fromLogin: true })
+        navigate(location?.state ? location?.state : "/")
         // e.target.reset()
       })
       .catch(() => {
@@ -32,7 +33,7 @@ const Login = () => {
     signInGoogle()
       .then(() => {
         toast.success("Login Successfully")
-        navigate(location?.state ? location?.state : "/", { fromLogin: true })
+        navigate(location?.state ? location?.state : "/")
       })
       .catch(() => {
         toast.error("Invalid email or passWord")
@@ -79,7 +80,8 @@ const Login = () => {
                 
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary bg-[#6c63ff]">Login</button>{" "}
+                <button className="btn btn-primary bg-[#6c63ff]">Login</button>
+                {" "}
                 <div className="divider">OR</div>
                 <div className="flex gap-4 items-center justify-center mt-2">
                   <Link onClick={handleGoogleSignIn} className="" >

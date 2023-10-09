@@ -1,12 +1,16 @@
-
+import toast, { Toaster } from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 const Blog = () => {
+  const handleSubmit =(e)=>{
+    e.preventDefault()
+    toast.success("Blog post has been submitted");
+   }
   const posts = useLoaderData();
   return (
     <div className="lg:mx-20 mx-5 md:my-10 ">
       <h1 className="text-4xl font-bold text-center my-5 mb-5 text-[#6c63ff]">
         Blog
-      </h1>
+      </h1><Toaster></Toaster>
       <div className="lg:grid-cols-3 gap-5 grid">
       <div className=" grid md:grid-cols-2 grid-cols-1  gap-5 lg:col-span-2">
         {posts.map((post) => (
@@ -30,7 +34,7 @@ const Blog = () => {
               </div>
               <div>
                 <div className="card-body">
-                  <button className="btn btn-info">read more</button>
+                  <button  className="btn btn-info">read more</button>
                 </div>
                 <div></div>
               </div>
@@ -96,7 +100,7 @@ const Blog = () => {
                
              </div>
              <div className="form-control mt-6">
-               <button className="mb-2 btn btn-info ">
+               <button onClick={handleSubmit} className="mb-2 btn btn-info ">
                  Submit Post
                </button>
                <div></div>

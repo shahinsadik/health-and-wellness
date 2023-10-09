@@ -64,8 +64,8 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost normal-case text-xl text-white">
-            Health & Wellness
+          <Link to="/" className="btn btn-ghost normal-case text-2xl text-white">
+            <span className="text-[#ff3c00]">H</span>&<span className="text-green">W</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -74,10 +74,6 @@ const Navbar = () => {
         <div className="navbar-end ">
           {user ? (
             <>
-              {" "}
-              <span className="mr-5 text-white font-semibold">
-                {user?.email}{" "}
-              </span>
               <div className="dropdown dropdown-end ">
                 <label
                   tabIndex={0}
@@ -93,15 +89,22 @@ const Navbar = () => {
                 <ul
                   tabIndex={0}
                   className="dropdown-content  z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                    <li>
+                    <a className="font-semibold">{user.displayName}</a>
+                  </li>
+                  <li>
+                    <a className="font-semibold">Dashboard</a>
+                  </li>
+                  <li>
+                    <a className="font-semibold">Edit Profile</a>
+                  </li>
                   <a
                     onClick={handleLogOut}
-                    className="btn btn-md font-bold text-white hover:text-[#ff3c00] border-none bg-[#ff3c00]">
+                    className="btn mt-1 btn-md font-bold text-white hover:text-[#ff3c00] border-none bg-[#ff3c00]">
                     {" "}
                     Log Out
                   </a>
-                  <li>
-                    <a>{user.displayName}</a>
-                  </li>
+                  
                 </ul>
               </div>
             </>

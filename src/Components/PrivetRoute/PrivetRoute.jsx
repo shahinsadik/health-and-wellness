@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {useContext} from 'react';
 
 import { Navigate, useLocation } from 'react-router-dom';
@@ -6,8 +7,10 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 
 const PrivetRoute = ({children}) => {
-    const {user, loading}=useContext(AuthContext)
+    const {user, loading }=useContext(AuthContext)
+
     const location = useLocation()
+
     console.log(location.pathname);
 
     if(loading){
@@ -32,7 +35,7 @@ const PrivetRoute = ({children}) => {
 
         return children;
     }
-    return <Navigate path={location.pathname} to='/login'></Navigate>
+    return <Navigate state={location.pathname} to='/login'></Navigate>
     ;
 };
 

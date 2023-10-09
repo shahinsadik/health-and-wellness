@@ -1,13 +1,17 @@
-import React from 'react';
 
+import toast, { Toaster } from "react-hot-toast";
 const Contact = () => {
+  const handleSubmit =(e)=>{
+    e.preventDefault()
+    toast.success("Your message has been submitted");
+   }
     return (
         <div className='mx-10 my-10'>
             <div >
                 <h1 className="text-5xl font-bold mt-5 text-[#6243d1] text-center  ">Get In Touch</h1>
                 <p className='text-[#6243d1] text-center mt-3 '>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <br />
                  doloremque laudantium, totam rem aperiam,</p>
-            </div>
+            </div><Toaster></Toaster>
             <div className="hero min-h-screen rounded-lg mt-5 bg-[#5137ac]">
             
         <div className="grid items-center lg:grid-cols-2 grid-cols-1">
@@ -72,7 +76,7 @@ const Contact = () => {
                 
               </div>
               <div className="form-control mt-6">
-                <button className="mb-2 btn btn-primary bg-[#6c63ff]">
+                <button onClick={handleSubmit} className="mb-2 btn btn-primary bg-[#6c63ff]">
                   Submit now
                 </button>
                 <div></div>

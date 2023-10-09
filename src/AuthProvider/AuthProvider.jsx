@@ -8,7 +8,8 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
+  updateProfile
 } from "firebase/auth";
 
 export const AuthContext = createContext(null);
@@ -17,7 +18,14 @@ const googleProvider = new GoogleAuthProvider();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading]=useState(true)
+  const [loading, setLoading]= useState(true)
+
+  const profileUpdate= (name, photo)=>{
+    setLoading(true)
+   return updateProfile(auth.currentUser, {
+      displayName: name , photoURL: photo
+    })
+  }
 
   const crateNewUser = (email, password) => {
     setLoading(true)
@@ -33,10 +41,7 @@ const AuthProvider = ({ children }) => {
       setLoading(true)
       return signInWithEmailAndPassword(auth, email, password);
   };
-  const logOut = () => {
-    setLoading(true)
-    return signOut(auth);
-  };
+  
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -47,6 +52,10 @@ const AuthProvider = ({ children }) => {
       unSubscribe();
     };
   }, []);
+  const logOut = () => {
+    setLoading(true)
+    return signOut(auth);
+  };
 
   const authInfo = {
     signInGoogle,
@@ -55,6 +64,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     user,
     loading,
+    profileUpdate
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

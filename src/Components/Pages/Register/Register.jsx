@@ -1,4 +1,3 @@
-
 import { useContext, useState } from "react";
 import LogPic from "../../../assets/SignPic.png";
 import { Link, useLocation } from "react-router-dom";
@@ -7,37 +6,46 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 const Register = () => {
-  const location =useLocation()
+  const { crateNewUser, profileUpdate } = useContext(AuthContext);
+  const location = useLocation();
   console.log(location);
   const [error, setError] = useState();
   const [emailError, setEmailError] = useState("");
-  const navigate = useNavigate()
-  const { crateNewUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleUser = (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
-    const photo = e.target.photo.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+    const form = new FormData(e.currentTarget);
+    const name = form.get("name");
+    const photo = form.get("photo");
+    const email = form.get("email");
+    const password = form.get("password");
+
     if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/.test(password)) {
       setError(
         "Minimum 8 characters, at least one uppercase letter, one lowercase letter and one number"
       );
     } else {
       if (email) {
-        crateNewUser(email, password).then(() => {
-          toast.success("Sign Up Successfully");
-          // e.target.reset()
-          // navigate(location?.state ? location.state : "/")
-          navigate("/", { fromRegister: true });
+        crateNewUser(email, password)
+          .then(() => {
+            toast.success("Sign Up Successfully");
+            e.target.reset();
+            profileUpdate(name, photo)
+              .then(()=>{
+                window.location.reload(false)
+              })
+            
+            navigate(location?.state ? location?.state : "/");
+            
           })
           .catch((error) => {
             if (error.code === "auth/email-already-in-use") {
               setEmailError("Email is already in use.");
             } else {
-              setEmailError(""); }
-        });
+              setEmailError("");
+            }
+          });
       }
     }
   };
@@ -96,7 +104,9 @@ const Register = () => {
                   className="input input-bordered"
                   required
                 />
-                <p>{emailError && <p className="text-red-700">{emailError}</p>}</p>
+                <p>
+                  {emailError && <p className="text-red-700">{emailError}</p>}
+                </p>
               </div>
               <div className="form-control">
                 <label className="label">
